@@ -66,6 +66,9 @@ $( function() {
 
   // To play and pause the video on space key.
   $(window).keyup((e) => (e.keyCode === 32) ? playPause() : "");
+
+  // Tooltip initialization
+  $('.tooltipped').tooltip({enterDelay : 400});
 } );
 
 // To adjust parent container as per video dimentions
