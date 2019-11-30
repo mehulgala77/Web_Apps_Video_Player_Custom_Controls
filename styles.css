@@ -27,9 +27,14 @@ body {
   min-height: 100vh;
 }
 
-/* Changes for the theater mode. */
+/* Changes for full-screen mode. */
 .parent-container.full-screen-mode {
   align-items: stretch;
+}
+
+/* Changes for theater mode. */
+.parent-container.theater-mode {
+  align-items: flex-start;
 }
 
 /* Container to hold Video and Controls */
@@ -41,17 +46,32 @@ body {
 
   /* margin: 20px; */
   border: 10px solid rgba(0,0,0,0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.video-container.full-screen-mode {
+/* Changes for the full screen mode */
+.full-screen-mode .video-container {
   min-width: 100vw;
   min-height: 100vh;
-  border: none;
+}
+
+/* Changes for the theater mode */
+.theater-mode .video-container {
+  min-width: 100vw;
+  min-height: 70vh;
+  background-color: black;
 }
 
 /* Video player */
 .my-player {
   width: 100%;
+}
+
+.theater-mode .my-player {
+  width: 60%;
 }
 
 /* My Controls Section */

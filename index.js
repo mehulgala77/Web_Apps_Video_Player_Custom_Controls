@@ -23,8 +23,8 @@ $( function() {
   $(".playPause").click(playPause);
   $(".backward").click(backward);
   $(".forward").click(forward);
-  $(".theater").click(theater);
-  $(".expand").click(expand);
+  $(".theater").click(theaterModeButtonClicked);
+  $(".expand").click(fullScreenModeButtonClicked);
 
   // Volumn related events
   $(".volume").click(volumeButtonClick);
@@ -130,12 +130,42 @@ function forward() {
   video.currentTime += parseFloat(20);
 }
 
-function theater() {
-  console.log(this);
+// Theater mode
+function theaterModeButtonClicked() {
+  // Cleaning of any previous special mode
+  $(".parent-container").removeClass("full-screen-mode");
+  $(".parent-container").toggleClass("theater-mode");
+
+  refreshIconOnTheaterModeButton();
+  refreshIconOnFullScreenButton();
 }
 
-function expand() {
-  console.log(this);
+function refreshIconOnTheaterModeButton() {
+  if( $(".parent-container").hasClass("theater-mode") ) {
+    $(".theater").html('<i class="fas fa-tablet-alt"></i>');
+  }
+  else {
+    $(".theater").html('<i class="fas fa-desktop"></i>');
+  }
+}
+
+// Full Screen mode
+function fullScreenModeButtonClicked() {
+  // Cleaning of any previous special mode
+  $(".parent-container").removeClass("theater-mode");
+  $(".parent-container").toggleClass("full-screen-mode");
+
+  refreshIconOnTheaterModeButton();
+  refreshIconOnFullScreenButton();
+}
+
+function refreshIconOnFullScreenButton() {
+  if($(".parent-container").hasClass("full-screen-mode")) {
+    $(".expand").html('<i class="fas fa-compress"></i>');
+  }
+  else {
+    $(".expand").html('<i class="fas fa-expand"></i>');
+  }
 }
 
 // Volumn controls
