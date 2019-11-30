@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Video Controls</title>
+
+    <!-- font fontawe -->
+    <script src="https://kit.fontawesome.com/f1932c16b3.js" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <div class="parent-container">
+
+      <div class="video-container">
+
+        <!-- Video Element -->
+        <video class="my-player" src="sample.mp4"></video>
+
+        <!-- Controls -->
+        <div class="my-controls">
+
+          <div class="progress-bar-container">
+            <div class="progress-bar">
+            </div>
+          </div>
+
+          <div class="options">
+
+            <a href="#" class="backward control"><i class="fas fa-backward"></i></a>
+            <a href="#" class="playPause control"><i class="fas fa-play"></i></a>
+            <a href="#" class="forward control"><i class="fas fa-forward"></i></a>
+            <a href="#" class="volume control"><i class="fas fa-volume-up"></i></a>
+            <p class="range-field volume-control">
+              <input class="control volume-range" type="range" name="volume-range" value="1" min="0" max="1" step="0.05">
+            </p>
+            <p class="time-progress"></p>
+            <p class="extra-space"></p>
+            <a href="#" class="theater control"><i class="fas fa-ticket-alt"></i></a>
+            <a href="#" class="expand control"><i class="fas fa-expand"></i></a>
+
+          </div>
+
+        </div>
+
+        <div class="my-hidden-play-pause">
+          <div class="my-play-pause-highlighter">
+            <p class="my-play-pause-text"><i class="fas fa-play"></i></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="index.js" charset="utf-8"></script>
+
+  </body>
+</html>

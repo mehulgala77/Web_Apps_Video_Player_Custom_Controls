@@ -1,0 +1,209 @@
+
+/* Global settings */
+
+:root {
+  --text-color: black;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(35deg, #43cea2, #185a9d);
+  min-height: 100vh;
+}
+
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Changes for the theater mode. */
+.parent-container.full-screen-mode {
+  align-items: stretch;
+}
+
+/* Container to hold Video and Controls */
+.video-container {
+  position: relative;
+  padding: 0;
+  width: 750px;
+  height: 400px;
+
+  /* margin: 20px; */
+  border: 10px solid rgba(0,0,0,0.2);
+}
+
+.video-container.full-screen-mode {
+  min-width: 100vw;
+  min-height: 100vh;
+  border: none;
+}
+
+/* Video player */
+.my-player {
+  width: 100%;
+}
+
+/* My Controls Section */
+.my-controls {
+  position: absolute;
+  height: 15%;
+  width: 100%;
+  bottom: 0;
+
+  transition: all 1s;
+}
+
+/* Handling when mouse is not hovered over the video */
+.my-controls.squeeze.play {
+  transform: translateY(90%);
+}
+
+/* Progress bar container */
+.progress-bar-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 20%;
+  cursor:w-resize;
+  /* overflow: hidden; */
+}
+
+.progress-bar {
+  background-color: red;
+  width: 0;
+  height: 100%;
+}
+
+.progress-bar:hover,
+.progress-bar-container:hover {
+  transform: scaleY(1.2);
+}
+
+/* Other player options */
+
+.options {
+  height: 80%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+
+  transition: all 0.2s;
+
+  /* To handle the controls within this section */
+  display: flex;
+}
+
+.options > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.options > *:hover {
+  transform: scale(1.3);
+}
+
+.my-controls .volume-control:hover {
+  transform: none;
+}
+
+/* Play Pause Highligher related section */
+.my-hidden-play-pause {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* To let the events pass through to the lower divs */
+  pointer-events: none;
+}
+
+.my-play-pause-highlighter {
+  min-height: 40px;
+  min-width: 40px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* To make child elements center aligned */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* To make the element circular */
+  border-radius: 50%;
+
+  /* Note: This time should be less than the fade-out time,
+  otherwise the element will be displayed 'none' and trnasition end event won't get fired.*/
+  transition: transform 0.7s;
+}
+
+.my-play-pause-highlighter.my-zoom-out {
+  transform: scale(2.5);
+}
+
+.my-play-pause-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 100;
+}
+
+/* Other buttons */
+
+.playPause,
+.backward,
+.forward {
+  flex-basis: 3.3rem;
+}
+
+/* The volumn range will be hidden at the state. */
+.range-field {
+  flex-basis: 0;
+  opacity: 0;
+
+  transition: all 1s;
+}
+
+/* This is to bring volume range in view when volumn button is clicked. */
+.range-field.my-display {
+  flex-basis: 7rem;
+  opacity: 1;
+}
+
+.expand, .volume, .theater {
+  flex-basis: 3.3rem;
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+
+.time-progress {
+  flex-basis: 8rem;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.my-controls .time-progress:hover {
+  transform: none;
+}
+
+.extra-space {
+  flex-grow: 1;
+}
